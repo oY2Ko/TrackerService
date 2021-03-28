@@ -42,22 +42,22 @@ namespace TrackerService.Controllers
         [HttpPost]
         public async Task<ActionResult<Student>> Post(Student student)
         {
-            Student temporary = await db.Students.FirstOrDefaultAsync(p => p.Login == student.Login);
+            //Student temporary = await db.Students.FirstOrDefaultAsync(p => p.Login == student.Login);
             if (student == null)
             {
                 return BadRequest();
             }
             else {
-                if (temporary != null)
-                {
+                //if (temporary != null)
+                //{
                     db.Students.Add(student);
                     await db.SaveChangesAsync();
                     return Ok(student);
-                }
-                else
-                {
-                    return BadRequest();
-                }
+                //}
+                //else
+                //{
+                //    return BadRequest();
+                //}
             }
         }
 
